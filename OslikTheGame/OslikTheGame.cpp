@@ -6,6 +6,7 @@ int main()
 {
     std::cout << "Hello World!\n";
     cout << "Suka" << endl;
+    cout << "Da kogda je poluchica";
 }
 
 // govno
