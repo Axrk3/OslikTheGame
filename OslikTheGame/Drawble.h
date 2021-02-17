@@ -19,11 +19,15 @@ class Oslik: public Creature {
 protected:
 	bool m_LeftPressed;
 	bool m_RightPressed;
+	bool m_LeftRun;
+	bool m_RightRun;
 	float m_Speed;
 public:
 	Oslik();
 	void moveLeft();
+	void RunLeft();
 	void moveRight();
+	void RunRight();
 	void stopLeft();
 	void stopRight();
 	void update(float elapsedTime);
