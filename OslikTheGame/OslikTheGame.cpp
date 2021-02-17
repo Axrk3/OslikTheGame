@@ -1,12 +1,12 @@
-﻿#include <iostream>
+﻿#include "Engine.h"
 
-using namespace std;
+using namespace sf;
 
 int main()
 {
-    std::cout << "Hello World1.0!\n";
+	Engine engine;
+
+	engine.start();
+
+	return 0;
 }
-
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
