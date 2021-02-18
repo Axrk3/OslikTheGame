@@ -2,28 +2,28 @@
 
 void Engine::input() {
 	if (Keyboard::isKeyPressed(Keyboard::Escape)) {
-		m_Window.close();
+		window.close();
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::A) && Keyboard::isKeyPressed(Keyboard::LShift)) {
-		m_Oslik.RunLeft();
+		oslik.runLeft();
 	} else if (Keyboard::isKeyPressed(Keyboard::A)) {
-		m_Oslik.stopLeft();
-		m_Oslik.moveLeft();
+		oslik.stopLeft();
+		oslik.moveLeft();
 	} else {
-		m_Oslik.stopLeft();
+		oslik.stopLeft();
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::D) && Keyboard::isKeyPressed(Keyboard::LShift)) {
-		m_Oslik.RunRight();
+		oslik.runRight();
 	} else if (Keyboard::isKeyPressed(Keyboard::D)) {
-		m_Oslik.stopRight ();
-		m_Oslik.moveRight();
+		oslik.stopRight ();
+		oslik.moveRight();
 	} else {
-		m_Oslik.stopRight();
+		oslik.stopRight();
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
-		m_Oslik.jump();
+		oslik.Jump();
 	}
 }

@@ -5,12 +5,12 @@ using namespace sf;
 
 class Drawble {
 protected:
-	Vector2f m_Position;
-	Sprite m_Sprite;
-	Texture m_Texture;
+	FloatRect rect;
+	Sprite sprite;
+	Texture texture;
 public:
 	Sprite getSprite();
-	void update(float elapsedTime);
+	void update(float time);
 };
 class Creature: public Drawble {
 
@@ -18,23 +18,23 @@ class Creature: public Drawble {
 class Oslik: public Creature {
 protected:
 	int ground;
-	bool m_OnGround;
-	bool m_LeftPressed;
-	bool m_RightPressed;
-	bool m_LeftRun;
-	bool m_RightRun;
-	bool m_Jump;
-	float m_Speed;
+	bool onGround;
+	bool leftPressed;
+	bool rightPressed;
+	bool leftRun;
+	bool rightRun;
+	bool jump;
+	float speed;
 	float dx, dy;
 public:
 	Oslik();
-	void jump();
 	void moveLeft();
-	void RunLeft();
+	void runLeft();
 	void moveRight();
-	void RunRight();
+	void runRight();
+	void Jump();
 	void stopLeft();
 	void stopRight();
-	void update(float elapsedTime);
+	void update(float time);
 };
 

@@ -1,76 +1,75 @@
 #include "Drawble.h";
 
 Oslik::Oslik() {
-	m_Speed = 400;
+	speed = 400;
 	ground = 800;
-	m_Texture.loadFromFile("bob.png");
-	m_Sprite.setTexture(m_Texture);
-	m_Position.x = 500;
-	m_Position.y = ground;
+	texture.loadFromFile("bob.png");
+	sprite.setTexture(texture);
+	rect = FloatRect(500, ground, 150, 192);
 	dx = dy = 0;
 }
 Sprite Drawble::getSprite() {
-	return m_Sprite;
+	return sprite;
 }
 void Oslik::moveLeft() {
-	m_LeftPressed = true;
+	leftPressed = true;
 }
 
-void Oslik::RunLeft() {
-	m_LeftRun = true;
+void Oslik::runLeft() {
+	leftRun = true;
 }
 
 void Oslik::moveRight() {
-	m_RightPressed = true;
+	rightPressed = true;
 }
 
-void Oslik::RunRight() {
-	m_RightRun = true;
+void Oslik::runRight() {
+	rightRun = true;
 }
 
 void Oslik::stopLeft() {
-	m_LeftPressed = false;
-	m_LeftRun = false;
+	leftPressed = false;
+	leftRun = false;
 }
 
 void Oslik::stopRight() {
-	m_RightPressed = false;
-	m_RightRun = false;
+	rightPressed = false;
+	rightRun = false;
 }
 
-void Oslik::jump() {
-	if (m_OnGround) {
+void Oslik::Jump() {
+	if (onGround) {
 		dy = -500;
-		m_OnGround = false;
+		onGround = false;
 	}
 }
 
-void Oslik::update(float elapsedTime) {
-	if (m_RightPressed) {
-		m_Position.x += m_Speed * elapsedTime;
-		if (m_RightRun) {
-			m_Position.x += m_Speed * elapsedTime;
+void Oslik::update(float time) {
+	if (rightPressed) {
+		rect.left += speed * time;
+		if (rightRun) {
+			rect.left += speed * time;
 		}
 	}
 
-	if (m_LeftPressed) {
-		m_Position.x -= m_Speed * elapsedTime;
-		if (m_LeftRun) {
-			m_Position.x -= m_Speed * elapsedTime;
+	if (leftPressed) {
+		rect.left -= speed * time;
+		if (leftRun) {
+			rect.left -= speed * time;
 		}
 	}
 	 
-	if (!m_OnGround) {
-		dy += 1000 * elapsedTime;
+	if (!onGround) {
+		dy += 1000 * time;
 	}
 
-	m_Position.y += dy * elapsedTime;
+	rect.top += dy * time;
 
-	if (m_Position.y > ground) {
-		m_Position.y = ground;
+	if (rect.top > ground) {
+		rect.top = ground;
 		dy = 0;
-		m_OnGround = true;
+		onGround = true;
 	}
 
-	m_Sprite.setPosition(m_Position);
+	sprite.setPosition(rect.left,rect.top);
 }

@@ -6,11 +6,11 @@ using namespace sf;
 
 class Engine {
 private:
-	RenderWindow m_Window;
-	Sprite m_BackgroundSprite;
-	Texture m_BackgroundTexture;
+	RenderWindow window;
+	Sprite backgroundSprite;
+	Texture backgroundTexture;
 
-	Oslik m_Oslik;
+	Oslik oslik;
 
 	void input();
 	void update(float dtAsSeconds);

@@ -5,16 +5,16 @@ Engine::Engine() {
 	resolution.x = VideoMode::getDesktopMode().width;
 	resolution.y = VideoMode::getDesktopMode().height;
 
-	m_Window.create(VideoMode(resolution.x, resolution.y), "Game Engine v.1", Style::Fullscreen);
+	window.create(VideoMode(resolution.x, resolution.y), "Game Engine v.1", Style::Fullscreen);
 
-	m_BackgroundTexture.loadFromFile("back.jpg");
-	m_BackgroundSprite.setTexture(m_BackgroundTexture);
+	backgroundTexture.loadFromFile("back.jpg");
+	backgroundSprite.setTexture(backgroundTexture);
 
 }
 
 void Engine::start() {
 	Clock clock;
-	while (m_Window.isOpen()) {
+	while (window.isOpen()) {
 		Time dt = clock.restart();
 
 		float dtAsSeconds = dt.asSeconds();
