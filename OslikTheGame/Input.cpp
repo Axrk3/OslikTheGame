@@ -22,4 +22,8 @@ void Engine::input() {
 	} else {
 		m_Oslik.stopRight();
 	}
+
+	if (Keyboard::isKeyPressed(Keyboard::W)) {
+		m_Oslik.jump();
+	}
 }
